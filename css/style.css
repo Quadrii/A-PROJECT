@@ -10,16 +10,17 @@ Dark green: #28b485
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     padding: 3rem;
+    box-sizing: border-box;
 }
 
 html {
-    font-size: 10px;
+    font-size: 62.5%;
 }
 
 .header {
