@@ -1,0 +1,28 @@
+$color-white:#fff;
+body {
+    font-family: 'Poppins', sans-serif;
+    padding: 3rem;
+}
+
+.heading-primary {
+    text-transform: uppercase;
+    color: $color-white;
+    backface-visibility: hidden;
+    margin-bottom: 4rem;
+    &-main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation-name: moveInLeft;
+        animation-duration: 3s;
+        animation-timing-function: ease-out;
+    }
+    &-sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: bolder;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 3s ease-out;
+    }
+}
