@@ -4,8 +4,10 @@
 @import "base/utilities";
 @import "pages/home";
 @import "abstracts/functions";
+@import "layouts/grid";
 @import "abstracts/variables";
 @import "abstracts/mixins";
 @import "components/button";
+@import "components/composition";
 @import "layouts/header";
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
