@@ -4,6 +4,33 @@ $color-primary:#55c57a;
 $color-secondary-dark:#ff7730;
 $color-grey-dark-2: #777;
 $default-font-size:1.6rem;
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        @media (max-width: 37.5em) {
+            @content
+        }
+        ; //600px
+    }
+    @if $breakpoint==tab-port {
+        @media (max-width: 56.25em) {
+            @content
+        }
+        ; //900px
+    }
+    @if $breakpoint==tab-land {
+        @media (max-width: 75em) {
+            @content
+        }
+        ; //1200px
+    }
+    @if $breakpoint==big-desktop {
+        @media (min-width: 112.5em) {
+            @content
+        }
+        ; //1800px
+    }
+}
+
 .form {
     &_group:not(:last-child) {
         margin-bottom: 2rem;
@@ -21,6 +48,9 @@ $default-font-size:1.6rem;
         display: block;
         transition: all .3s;
         position: relative;
+        @include respond (tab-port) {
+            width: 100%;
+        }
         &:focus {
             outline: none;
             box-shadow: 0 1rem 2rem rgba($color-black, .1);
@@ -49,6 +79,10 @@ $default-font-size:1.6rem;
     &_radio-group {
         width: 49%;
         display: inline-block;
+        @include respond (tab-port) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
     &_radio-input {
         display: none;

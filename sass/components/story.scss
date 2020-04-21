@@ -1,3 +1,30 @@
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        @media (max-width: 37.5em) {
+            @content
+        }
+        ; //600px
+    }
+    @if $breakpoint==tab-port {
+        @media (max-width: 56.25em) {
+            @content
+        }
+        ; //900px
+    }
+    @if $breakpoint==tab-land {
+        @media (max-width: 75em) {
+            @content
+        }
+        ; //1200px
+    }
+    @if $breakpoint==big-desktop {
+        @media (min-width: 112.5em) {
+            @content
+        }
+        ; //1800px
+    }
+}
+
 $color-white: #fff;
 $color-black:#000;
 $default-font-size:1.6rem;
@@ -11,6 +38,14 @@ $default-font-size:1.6rem;
     padding-left: 9rem;
     font-size: $default-font-size;
     transform: skewX(-12deg);
+    @include respond (tab-port) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
+    }
+    @include respond (phone) {
+        transform: skewX(0);
+    }
     &_shape {
         width: 15rem;
         height: 15rem;
@@ -20,6 +55,9 @@ $default-font-size:1.6rem;
         -webkit-clip-path: circle(50% at 50% 50%);
         clip-path: circle(50% at 50% 50%);
         transform: translateX(-3rem) skewX(12deg);
+        @include respond (phone) {
+            transform: translateX(-3rem) skewX(0);
+        }
     }
     &_img {
         height: 100%;
@@ -29,6 +67,9 @@ $default-font-size:1.6rem;
     }
     &_text {
         transform: skewX(12deg);
+        @include respond (phone) {
+            transform: skewX(0);
+        }
     }
     &_caption {
         position: absolute;

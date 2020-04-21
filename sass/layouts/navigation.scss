@@ -1,3 +1,30 @@
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        @media (max-width: 37.5em) {
+            @content
+        }
+        ; //600px
+    }
+    @if $breakpoint==tab-port {
+        @media (max-width: 56.25em) {
+            @content
+        }
+        ; //900px
+    }
+    @if $breakpoint==tab-land {
+        @media (max-width: 75em) {
+            @content
+        }
+        ; //1200px
+    }
+    @if $breakpoint==big-desktop {
+        @media (min-width: 112.5em) {
+            @content
+        }
+        ; //1800px
+    }
+}
+
 $color-white: #fff;
 $color-primary-light:#7ed56f;
 $color-primary-dark:#28b485;
@@ -20,6 +47,14 @@ $color-grey-dark-3: #333;
         box-shadow: 0 1rem 3rem rgba($color-black, .1);
         text-align: center;
         cursor: pointer;
+        @include respond (tab-port) {
+            top: 4rem;
+            left: 4rem;
+        }
+        @include respond (tab-port) {
+            top: 3rem;
+            left: 3rem;
+        }
     }
     &_background {
         height: 6rem;
@@ -31,6 +66,14 @@ $color-grey-dark-3: #333;
         background-image: radial-gradient($color-primary-light, $color-primary-dark);
         z-index: 1000;
         transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+        @include respond (tab-port) {
+            top: 4.5rem;
+            left: 4.5rem;
+        }
+        @include respond (phone) {
+            top: 3.5rem;
+            left: 3.5rem;
+        }
     }
     &_nav {
         height: 100vh;

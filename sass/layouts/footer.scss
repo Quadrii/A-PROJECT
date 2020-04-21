@@ -1,3 +1,30 @@
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        @media (max-width: 37.5em) {
+            @content
+        }
+        ; //600px
+    }
+    @if $breakpoint==tab-port {
+        @media (max-width: 56.25em) {
+            @content
+        }
+        ; //900px
+    }
+    @if $breakpoint==tab-land {
+        @media (max-width: 75em) {
+            @content
+        }
+        ; //1200px
+    }
+    @if $breakpoint==big-desktop {
+        @media (min-width: 112.5em) {
+            @content
+        }
+        ; //1800px
+    }
+}
+
 $color-grey-dark: #777;
 $color-grey-dark-2: #777;
 $color-grey-dark-3: #333;
@@ -8,9 +35,15 @@ $color-black:#000;
     background-color: $color-grey-dark-3;
     padding: 10rem 0;
     font-size: 1.4rem;
+    @include respond (tab-port) {
+        padding: 8rem 0;
+    }
     &_logo-box {
         text-align: center;
         margin-bottom: 8rem;
+        @include respond (tab-port) {
+            margin-bottom: 6rem;
+        }
     }
     &_logo {
         width: 15rem;
@@ -20,6 +53,10 @@ $color-black:#000;
         border-top: 1px solid $color-grey-dark-2;
         padding-top: 2rem;
         display: inline-block;
+        @include respond (tab-port) {
+            width: 100%;
+            text-align: center;
+        }
     }
     &_list {
         list-style: none;
@@ -52,5 +89,9 @@ $color-black:#000;
         padding-top: 2rem;
         width: 80%;
         float: right;
+        @include respond (tab-port) {
+            width: 100%;
+            float: none;
+        }
     }
 }
